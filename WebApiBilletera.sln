@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiBilletera", "WebApiBilletera\WebApiBilletera.csproj", "{96743886-1100-472C-81A6-6FA28A98CC89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96743886-1100-472C-81A6-6FA28A98CC89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96743886-1100-472C-81A6-6FA28A98CC89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96743886-1100-472C-81A6-6FA28A98CC89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96743886-1100-472C-81A6-6FA28A98CC89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B43DA736-D379-4352-BD6A-2CF7CCF88B69}
+	EndGlobalSection
+EndGlobal
