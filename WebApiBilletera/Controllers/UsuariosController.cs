@@ -11,7 +11,7 @@ using System.Web.Http.Cors;
 
 namespace WebApiBilletera.Controllers
 {
-    [EnableCors(origins: "http://localhost:4200/", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
 
     public class UsuariosController : ApiController
     {
@@ -58,7 +58,7 @@ namespace WebApiBilletera.Controllers
                 comando.CommandText = "INSERT INTO Usuarios (Username, Email, Clave, Nombre, Apellido, DNI, Telefono, Localidad, Estado, TipoUsuario, Fecha_Nac) VALUES( '"
                    + oUsuario.UserName + "' , '" + oUsuario.Email + "' , '"
                     + oUsuario.Clave + "' , '" + oUsuario.Nombre + "' , '" + oUsuario.Apellido + "' , "
-                    + oUsuario.DNI + " , '" + oUsuario.Telefono + "' , '" + oUsuario.Localidad + "' ,  " + oUsuario.Estado + " ,  " + oUsuario.TipoUsuario + " , '" + oUsuario.Fecha_Nac.ToShortDateString() + "')";
+                    + oUsuario.DNI + " , '" + oUsuario.Telefono + "' , " + oUsuario.Localidad + " , 1 , 1 , '" + oUsuario.Fecha_Nac.ToShortDateString() + "')";
 
                 comando.Connection = conector;
 

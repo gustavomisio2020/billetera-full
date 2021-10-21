@@ -11,7 +11,7 @@ using System.Web.Http.Cors;
 
 namespace WebApiBilletera.Controllers
 {
-    [EnableCors(origins: "http://localhost:4200/", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
 
     public class OperacionesController : ApiController
     {
