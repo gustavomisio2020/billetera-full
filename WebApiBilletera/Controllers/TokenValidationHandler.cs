@@ -8,17 +8,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using Microsoft.IdentityModel.Tokens;
-
+using System.Web.Http.Cors;
 
 
 namespace WebApiBilletera.Controllers
 {
-    
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
 
-        /// <summary>
-        /// Token validator for Authorization Request using a DelegatingHandler
-        /// </summary>
-        internal class TokenValidationHandler : DelegatingHandler
+    /// <summary>
+    /// Token validator for Authorization Request using a DelegatingHandler
+    /// </summary>
+    internal class TokenValidationHandler : DelegatingHandler
         {
             private static bool TryRetrieveToken(HttpRequestMessage request, out string token)
             {
