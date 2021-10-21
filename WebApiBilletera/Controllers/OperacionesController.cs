@@ -37,7 +37,8 @@ namespace WebApiBilletera.Controllers
             using (SqlConnection conector = new SqlConnection(cadena))
             {
                 conector.Open();
-                SqlDataAdapter adaptador = new SqlDataAdapter("SELECT * FROM Operaciones WHERE Usuario = " + id, conector);
+                SqlDataAdapter adaptador = new SqlDataAdapter("SELECT Operaciones.FechayHora, Tipo_operacion.Operacion, Operaciones.Monto, Operaciones.Comision FROM Operaciones INNER JOIN Tipo_Operacion ON Operaciones.Tipo_operacion = Tipo_Operacion.Id_tipo_operacion WHERE Operaciones.Usuario = " + id, conector);
+                //SqlDataAdapter adaptador = new SqlDataAdapter("SELECT * FROM Operaciones WHERE Usuario = " + id, conector);
                 adaptador.Fill(dt);
             }
             return Ok(dt);

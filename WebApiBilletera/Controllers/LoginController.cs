@@ -11,12 +11,6 @@ namespace WebApiBilletera.Controllers
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
-        /// <summary>
-        /// login controller class for authenticate users
-        /// </summary>
-        /// 
-
-
 
 
 
@@ -43,12 +37,17 @@ namespace WebApiBilletera.Controllers
         [HttpPost]
             
         public IHttpActionResult Authenticate(LoginRequest login)
+
         {
+            var Usuarioalmacenado = Buscarclave.BuscarUsuario(login.Username);
+
             if (login == null)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
            
+            var clavealmacenada = Buscarclave.BuscarClaves(login.Username);
                
-            var isUserValid = (login.Username == "user" && login.Password == "123456");
+            var isUserValid = (login.Password == clavealmacenada);
+            //var isUserValid = (login.Username == "user" && login.Password == "123456");
             if (isUserValid)
             {
                 var rolename = "Developer";

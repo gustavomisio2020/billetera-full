@@ -36,7 +36,7 @@ namespace WebApiBilletera.Controllers
         // GET: api/Usuarios/5
         public string Get(int id)
         {
-            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
             string nombre = "";
             using (SqlConnection conector = new SqlConnection(cadena))
             {  
