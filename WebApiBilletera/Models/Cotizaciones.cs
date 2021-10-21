@@ -16,4 +16,6 @@ namespace WebApiBilletera.Models
         public decimal Cotizacion { get; set; }
 
     }
+
+
 }

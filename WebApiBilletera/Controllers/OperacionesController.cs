@@ -31,6 +31,20 @@ namespace WebApiBilletera.Controllers
             return Ok(dt);
         }
 
+        public IHttpActionResult Get(int id)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conector = new SqlConnection(cadena))
+            {
+                conector.Open();
+                SqlDataAdapter adaptador = new SqlDataAdapter("SELECT * FROM Operaciones WHERE Usuario = " + id, conector);
+                adaptador.Fill(dt);
+            }
+            return Ok(dt);
+        }
+
+
+
         // POST: api/Operaciones
         public void Post([FromBody] Models.Operaciones oOperacion)
         {

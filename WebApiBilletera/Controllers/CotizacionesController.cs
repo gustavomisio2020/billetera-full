@@ -41,9 +41,8 @@ namespace WebApiBilletera.Controllers
             {
                 conector.Open();
                 SqlCommand comando = new SqlCommand();
-                comando.CommandText = "INSERT INTO Cotizaciones (Moneda, Fecha_cotizacion, Cotizacion) VALUES( "
-                   + oCotizacion.Moneda + " , '" + oCotizacion.Fecha_cotizacion + "' , "
-                    + oCotizacion.Cotizacion.ToString().Replace("," , ".") + " )";
+                comando.CommandText = "INSERT INTO Cotizaciones (Moneda, Cotizacion) VALUES( "
+                   + oCotizacion.Moneda + " , " + oCotizacion.Cotizacion.ToString().Replace("," , ".") + " )";
 
                 comando.Connection = conector;
 
