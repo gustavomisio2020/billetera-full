@@ -3,15 +3,22 @@ using System.Net;
 using System.Threading;
 using System.Web.Http;
 using WebApiBilletera.Models;
+using System.Web.Http.Cors;
 
 
 namespace WebApiBilletera.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
         /// <summary>
         /// login controller class for authenticate users
         /// </summary>
+        /// 
+
+
+
+
 
         [HttpGet]
         [Route("echoping")]
@@ -28,42 +35,47 @@ namespace WebApiBilletera.Controllers
             return Ok($" IPrincipal-user: {identity.Name} - IsAuthenticated:{ identity.IsAuthenticated}");
         }
     
-            [HttpPost]
+
+
+
+
+
+        [HttpPost]
             
-            public IHttpActionResult Authenticate(LoginRequest login)
-            {
-                if (login == null)
-                    throw new HttpResponseException(HttpStatusCode.BadRequest);
+        public IHttpActionResult Authenticate(LoginRequest login)
+        {
+            if (login == null)
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
            
                
-                var isUserValid = (login.Username == "user" && login.Password == "123456");
-                if (isUserValid)
-                {
-                    var rolename = "Developer";
-                    var token = TokenGenerator.GenerateTokenJwt(login.Username, rolename);
-                    return Ok(token);
-                }
+            var isUserValid = (login.Username == "user" && login.Password == "123456");
+            if (isUserValid)
+            {
+                var rolename = "Developer";
+                var token = TokenGenerator.GenerateTokenJwt(login.Username, rolename);
+                return Ok(token);
+            }
               
               
-                var isTesterValid = (login.Username == "test" && login.Password == "123456");
-                if (isTesterValid)
-                {
-                    var rolename = "Tester";
-                    var token = TokenGenerator.GenerateTokenJwt(login.Username, rolename);
-                    return Ok(token);
-                }
+            var isTesterValid = (login.Username == "test" && login.Password == "123456");
+            if (isTesterValid)
+            {
+                var rolename = "Tester";
+                var token = TokenGenerator.GenerateTokenJwt(login.Username, rolename);
+                return Ok(token);
+            }
           
              
-                var isAdminValid = (login.Username == "admin" && login.Password == "123456");
-                if (isAdminValid)
-                {
-                    var rolename = "Administrator";
-                    var token = TokenGenerator.GenerateTokenJwt(login.Username, rolename);
-                    return Ok(token);
-                }
-                
-                return Unauthorized();
+            var isAdminValid = (login.Username == "admin" && login.Password == "123456");
+            if (isAdminValid)
+            {
+                var rolename = "Administrator";
+                var token = TokenGenerator.GenerateTokenJwt(login.Username, rolename);
+                return Ok(token);
             }
+                
+            return Unauthorized();
+        }
         
 
     }
