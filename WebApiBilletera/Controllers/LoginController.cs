@@ -41,9 +41,15 @@ namespace WebApiBilletera.Controllers
         {
             var Usuarioalmacenado = Buscarclave.BuscarUsuario(login.Username);
 
-            if (login == null)
+
+
+            if (login == null || Usuarioalmacenado == "usernotfound")
+            {
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
-           
+            }
+            else
+            {
+
             var clavealmacenada = Buscarclave.BuscarClaves(login.Username);
                
             var isUserValid = (login.Password == clavealmacenada);
@@ -54,8 +60,10 @@ namespace WebApiBilletera.Controllers
                 var token = TokenGenerator.GenerateTokenJwt(login.Username, rolename);
                 return Ok(token);
             }
+
+            }
               
-              
+            /*  
             var isTesterValid = (login.Username == "test" && login.Password == "123456");
             if (isTesterValid)
             {
@@ -72,7 +80,8 @@ namespace WebApiBilletera.Controllers
                 var token = TokenGenerator.GenerateTokenJwt(login.Username, rolename);
                 return Ok(token);
             }
-                
+            */
+            
             return Unauthorized();
         }
         
